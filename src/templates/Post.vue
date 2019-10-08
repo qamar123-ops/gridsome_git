@@ -12,7 +12,7 @@
           {{ tag.title }}
         </g-link>
       </div>
-      <div class="markdown-body mb-8" v-html="$page.post.content" />
+      <div class="markdown-body mb-8 chineseText" v-html="$page.post.content" />
       <div class="mb-8">
         <g-link to="/blog" class="font-bold uppercase">Back to Blog</g-link>
       </div>
@@ -35,7 +35,15 @@ query Post ($path: String!) {
 </page-query>
 
 <script>
+  import MandarinspotComponent from '../components/MandarinspotComponent' //import MandarinspotComponent
+
 export default {
+    components: {
+    MandarinspotComponent //register Mandarinspot component
+  },
+  mounted() {
+    mandarinspot.annotate('.chineseText', {phonetic: 'pinyin', show: false}); //Mandarinspot annotation call
+  },
   metaInfo() {
     return {
       title: this.$page.post.title

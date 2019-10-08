@@ -39,8 +39,10 @@
           <li>
             <g-link to="/blog" class="text-copy-primary hover:text-gray-600">Blog</g-link>
           </li>
-        </ul>
+          </ul>
+           <MandarinspotComponent />
       </nav>
+
     </header>
 
     <div class="flex-grow">
@@ -106,11 +108,12 @@ query {
 <script>
 import SearchInput from '../components/SearchInput'
 import ThemeSwitcher from '../components/ThemeSwitcher'
-
+import MandarinspotComponent from '../components/MandarinspotComponent' 
 export default {
   components: {
     SearchInput,
-    ThemeSwitcher
+    ThemeSwitcher,
+    MandarinspotComponent 
   },
   mounted() {
     this.theme = localStorage.getItem('theme') || 'theme-light'
